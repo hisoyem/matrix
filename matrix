@@ -1,0 +1,188 @@
+
+
+
+'''0  1   2
+[0[1,  3, -4]   [ [1,  5, -1]
+  1[5,  8,  1]     [3,  8,  6]
+  2[-1, 6, -8] ]   [-4, 1, -8] ]
+
+
+
+'''
+
+
+L = [] # Matrix №1
+P = [] # Matrix №2
+
+a = [] # First string
+b = [] # Second string
+c = [] # Third string
+
+a1 = [] # First string of second list
+b1 = [] # Second string of second list
+c1 = [] # Third string of second list
+
+
+print('Make a choice: 1. Solve the equation. 2. Find determinant.')
+choice = int(input('1 or 2: '))
+
+
+
+
+# Determination
+
+
+
+if choice == 2:
+
+    print('The matrix consists of four meanings? yes or no')
+    enter = input() # Determining the matrix
+
+
+    if enter == 'yes': 
+        for i in range(2): # Filling string a
+            i = int(input('enter value: '))
+            a.append(i)
+        for i in range(2): # Filling string b
+            i = int(input('enter value: '))
+            b.append(i)
+        L = a, b # Merging strings a and b into matrix №1
+        det_01 = L[0][0]*L[1][1] - L[0][1]*L[1][0] # Determinant 2x2
+        print('Determinant = ', det_01)
+
+
+    elif enter == 'no':
+        for i in range(3): # Filling string a
+            i = int(input('enter value: '))
+            a.append(i)
+        for i in range(3): # Filling string b
+            i = int(input('enter value: '))
+            b.append(i)
+        for i in range(3): # Filling string c
+            i = int(input('enter value: '))
+            c.append(i)
+        L = a, b, c # Merging strings a, b and c into matrix №1
+        det_02 = L[0][0]*L[1][1]*L[2][2] + L[0][2]*L[1][0]*L[2][1] + L[2][0]*L[0][1]*L[1][2] - L[0][2]*L[1][1]*L[2][0] - L[0][0]*L[2][1]*L[1][2] - L[2][2]*L[1][0]*L[0][1] # Determinant 3x3
+        print('Determinant = ', det_02)
+    
+
+
+# Solution of the system of equations
+
+
+
+
+else:
+    print('The matrix consists of four meanings? yes or no')
+    enter = input() # Determining the matrix
+
+
+
+    # Matrix №1
+
+    if enter == 'yes': # 2x2
+        for i in range(2): # Filling string a
+            i = int(input('enter value: '))
+            a.append(i)
+        for i in range(2): # Filling string b
+            i = int(input('enter value: '))
+            b.append(i)
+        L = a, b # Merging strings a and b into matrix №1
+        det_01 = L[0][0]*L[1][1] - L[0][1]*L[1][0] # Determinant 2x2
+        print('Determinant = ', det_01)
+ 
+
+        
+        # Transpose lists
+
+        q = a.pop(1) 
+        w = b.pop(0)
+        a.insert(1, w)
+        b.insert(0, q)
+        L = a, b
+        print('Transpose matrix: ', L)
+        
+
+        # Filling matrix №2
+
+
+        print('Fill last list:') 
+        for i in range(1): # Filling string a1
+            i = int(input())
+            a1.append(i)
+        for i in range(1): # Filling string b1
+            i = int(input())
+            b1.append(i)
+        P = a1, b1 # Merging strings a1 and b1 into matrix №2
+        print(P)
+
+
+    # Matrix №1
+
+    elif enter == 'no': #3x3
+        for i in range(3): # Filling string a
+            i = int(input('enter value: '))
+            a.append(i)
+        for i in range(3): # Filling string b
+            i = int(input('enter value: '))
+            b.append(i)
+        for i in range(3): # Filling string c
+            i = int(input('enter value: '))
+            c.append(i)
+        L = a, b, c # Merging strings a, b and c into matrix №1
+        det_02 = L[0][0]*L[1][1]*L[2][2] + L[0][2]*L[1][0]*L[2][1] + L[2][0]*L[0][1]*L[1][2] - L[0][2]*L[1][1]*L[2][0] - L[0][0]*L[2][1]*L[1][2] - L[2][2]*L[1][0]*L[0][1] # ?A ��� ������� �������� 3x3
+        print('Determinant = ', det_02)
+
+
+
+        # Transpose lists
+
+        a01 = a[1]
+        a02 = a[2]
+        a10 = b[0]
+        a12 = b[2]
+        a20 = c[0]
+        a21 = c[1]
+
+        a[1] = a10
+        a[2] = a20
+        b[0] = a01
+        b[2] = a21
+        c[0] = a02
+        c[1] = a12
+
+        print('Transpose matrix: ', L)
+
+        
+        # Matrix №2
+
+        print('Fill last list:') # 3x3
+        for i in range(1): # Filling string a1
+            i = int(input())
+            a1.append(i)
+        for i in range(1): # Filling string b1
+            i = int(input())
+            b1.append(i)
+        for i in range(1): # Filling string c1
+            i = int(input())
+            c1.append(i)
+        P = a1, b1, c1 # Merging strings a1, b1 and c1 into matrix №2
+        print(P)
+
+ # X = A^(-1) * B   
+ # A^(-1) = (1/detA) * A^(T)
+    
+    
+        
+
+
+
+
+
+
+
+
+
+
+
+
