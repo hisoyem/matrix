@@ -120,15 +120,21 @@ else:
         det_01 = L[0][0]*L[1][1] - L[0][1]*L[1][0] # Determinant 2x2
         print('Determinant = ', det_01)
  
+ 
 
         
         # Transpose lists
-
-        q = a.pop(1) 
-        w = b.pop(0)
-        a.insert(1, w)
-        b.insert(0, q)
+        
+        # Step 1
+        q = a.pop(0) 
+        w = b.pop(1)
+        a.insert(0, w)
+        b.insert(1, q)
         L = a, b
+        
+        # Step 2
+        L[0][1] *= -1
+        L[1][0] *= -1
         print('Transpose matrix: ', L)
         
 
@@ -144,6 +150,10 @@ else:
             b1.append(i)
         P = a1, b1 # Merging strings a1 and b1 into matrix №2
         print(P)
+        
+        
+        
+        
 
 
     # Matrix №1
@@ -201,17 +211,3 @@ else:
  # X = A^(-1) * B   
  # A^(-1) = (1/detA) * A^(T)
     
-    
-        
-
-
-
-
-
-
-
-
-
-
-
-
