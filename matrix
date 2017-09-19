@@ -101,7 +101,7 @@ if choice == 2:
 
 
 
-else:
+elif choice == 1:
     print('The matrix consists of four meanings? yes or no')
     enter = input() # Determining the matrix
 
