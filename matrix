@@ -117,24 +117,27 @@ else:
             i = int(input('enter value: '))
             b.append(i)
         L = a, b # Merging strings a and b into matrix №1
-        det = L[0][0]*L[1][1] - L[0][1]*L[1][0] # Determinant 2x2
-        print('Determinant = ', det)
- 
+        det_01 = L[0][0]*L[1][1] - L[0][1]*L[1][0] # Determinant 2x2
+        print('Determinant = ', det_01)
  
 
-        
+
+
+
+
+
         # Transpose lists
-        
-        # Step 1
+
         q = a.pop(0) 
         w = b.pop(1)
         a.insert(0, w)
         b.insert(1, q)
         L = a, b
+
+        #####
         
-        # Step 2
-        L[0][1] *= -1
-        L[1][0] *= -1
+        a[1] *= -1
+        b[0] *= -1
         print('Transpose matrix: ', L)
         
 
@@ -150,19 +153,17 @@ else:
             b1.append(i)
         P = a1, b1 # Merging strings a1 and b1 into matrix №2
         print(P)
-        
-        
-        
-        # Multiplication A^(-1) * B (2x2)
-        
-        Multiplication_2x2_X = (1/det)*(a[0]*a1[0] + a[1]*b1[0])
-        Multiplication_2x2_Y = (1/det)*(b[0]*a1[0] + b[1]*b1[0])
-        print('X = ', Multiplication_2x2_X, '\nY = ', Multiplication_2x2_Y)
-        
-        
 
 
-    # Matrix №1 3x3
+
+        # Matrix multiplication
+
+        multiplication_2x2_X = int(a[0]*a1[0] + a[1]*b1[0]) * (1/det_01)
+        multiplication_2x2_Y = int(b[0]*a1[0] + b[1]*b1[0]) * (1/det_01)
+        print('X = ', multiplication_2x2_X, 'Y = ', multiplication_2x2_Y)
+
+
+    # Matrix №1
 
     elif enter == 'no': #3x3
         for i in range(3): # Filling string a
@@ -175,8 +176,8 @@ else:
             i = int(input('enter value: '))
             c.append(i)
         L = a, b, c # Merging strings a, b and c into matrix №1
-        det = L[0][0]*L[1][1]*L[2][2] + L[0][2]*L[1][0]*L[2][1] + L[2][0]*L[0][1]*L[1][2] - L[0][2]*L[1][1]*L[2][0] - L[0][0]*L[2][1]*L[1][2] - L[2][2]*L[1][0]*L[0][1] # Determinant 3x3
-        print('Determinant = ', det)
+        det_02 = L[0][0]*L[1][1]*L[2][2] + L[0][2]*L[1][0]*L[2][1] + L[2][0]*L[0][1]*L[1][2] - L[0][2]*L[1][1]*L[2][0] - L[0][0]*L[2][1]*L[1][2] - L[2][2]*L[1][0]*L[0][1] # ?A ��� ������� �������� 3x3
+        print('Determinant = ', det_02)
 
 
 
@@ -214,6 +215,24 @@ else:
         P = a1, b1, c1 # Merging strings a1, b1 and c1 into matrix №2
         print(P) 
 
+
+        
+
+
  # X = A^(-1) * B   
  # A^(-1) = (1/detA) * A^(T)
     
+    
+        
+
+
+
+
+
+
+
+
+
+
+
+
